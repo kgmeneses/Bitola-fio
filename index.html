@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descubra a bitola do seu fio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Descubra a bitola do seu fio</h1>
+    <p>Preencha 5 informações e veja qual fio e qual disjuntor usar no cômodo, com o passo a passo da conta.</p>
+  </div>
+</header>
+
+<main>
+  <form id="form" class="cartao" novalidate>
+    <h2>Seus dados</h2>
+
+    <div class="campo">
+      <label for="potencia">1. Potência total (W)</label>
+      <input type="text" id="potencia" inputmode="decimal" autocomplete="off" placeholder="Ex.: 2500">
+      <p class="ajuda">Some a potência dos aparelhos do cômodo. Ela vem na etiqueta de cada aparelho, em watts (W).</p>
+    </div>
+
+    <div class="campo">
+      <label for="tensao">2. Tensão (V)</label>
+      <input type="text" id="tensao" inputmode="decimal" autocomplete="off" placeholder="Ex.: 127">
+      <div class="atalhos">
+        <button type="button" data-v="127">127 V</button>
+        <button type="button" data-v="220">220 V</button>
+      </div>
+      <p class="ajuda">É a voltagem da tomada da sua cidade. No Brasil costuma ser 127 V ou 220 V.</p>
+    </div>
+
+    <div class="campo">
+      <label for="fct">3. FCT: fator de correção de temperatura</label>
+      <input type="text" id="fct" inputmode="decimal" autocomplete="off" value="1,00">
+      <p class="ajuda">Fio esquentado pelo ambiente aguenta menos corrente. Na dúvida, use 1,00 (ambiente a 30 °C).</p>
+      <details>
+        <summary>? Ver valores típicos</summary>
+        <table>
+          <tr><th>Temperatura</th><td>20 °C</td><td>25 °C</td><td>30 °C</td><td>35 °C</td><td>40 °C</td><td>45 °C</td></tr>
+          <tr><th>FCT</th><td>1,12</td><td>1,06</td><td>1,00</td><td>0,94</td><td>0,87</td><td>0,79</td></tr>
+        </table>
+      </details>
+    </div>
+
+    <div class="campo">
+      <label for="fca">4. FCA: fator de correção de agrupamento</label>
+      <input type="text" id="fca" inputmode="decimal" autocomplete="off" value="1,00">
+      <p class="ajuda">Vários circuitos juntos no mesmo eletroduto se aquecem entre si. Se o seu circuito está sozinho, use 1,00.</p>
+      <details>
+        <summary>? Ver valores típicos</summary>
+        <table>
+          <tr><th>Circuitos juntos</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+          <tr><th>FCA</th><td>1,00</td><td>0,80</td><td>0,70</td><td>0,65</td><td>0,60</td><td>0,57</td></tr>
+        </table>
+      </details>
+    </div>
+
+    <div class="campo">
+      <label for="distancia">5. Distância do quadro ao cômodo (m)</label>
+      <input type="text" id="distancia" inputmode="decimal" autocomplete="off" placeholder="Ex.: 15">
+      <p class="ajuda">Meça o caminho que o fio vai percorrer, do quadro de energia até o ponto mais distante do cômodo.</p>
+    </div>
+
+    <div class="botoes">
+      <button type="submit" id="calcular">Calcular</button>
+      <button type="button" id="limpar">Limpar</button>
+    </div>
+  </form>
+
+  <section id="resultado" hidden aria-live="polite"></section>
+</main>
+
+<footer>
+  <p>Ferramenta educativa, circuito monofásico, fio de cobre com isolação PVC. Não substitui projeto de um profissional habilitado nem a NBR 5410.</p>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

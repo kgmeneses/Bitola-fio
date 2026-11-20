@@ -1,0 +1,68 @@
+:root {
+    --fundo: #eef3f7;
+    --cartao: #ffffff;
+    --tinta: #14202b;
+    --suave: #51606e;
+    --azul: #1b4a78;
+    --azul-claro: #dbe8f4;
+    --amarelo: #f5c400;
+    --cobre: #b87333;
+    --erro: #a4281c;
+    --borda: #c5d1dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--fundo); color: var(--tinta);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  header { background: var(--azul); color: #fff; padding: 28px 16px 40px; border-bottom: 6px solid var(--amarelo); }
+  header div, main, footer { max-width: 720px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 1.9rem; line-height: 1.2; }
+  header p { margin: 0; color: #d6e4f2; max-width: 52ch; }
+  main { padding: 0 16px 24px; margin-top: -22px; }
+  .cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 10px; padding: 20px; margin-bottom: 18px; }
+  h2 { margin: 0 0 12px; font-size: 1.2rem; }
+  .campo { margin-bottom: 18px; }
+  label { display: block; font-weight: 600; margin-bottom: 4px; }
+  input[type="text"] {
+    width: 100%; padding: 11px 12px; font-size: 1.05rem; color: var(--tinta);
+    border: 2px solid var(--borda); border-radius: 6px; background: #fff;
+  }
+  input[type="text"]:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 2px; }
+  input.invalido { border-color: var(--erro); }
+  .ajuda { margin: 4px 0 0; font-size: .92rem; color: var(--suave); }
+  .msg-erro { margin: 4px 0 0; font-size: .92rem; color: var(--erro); font-weight: 600; }
+  .atalhos { display: flex; gap: 8px; margin-top: 8px; }
+  .atalhos button { padding: 6px 14px; border: 1px solid var(--azul); background: var(--azul-claro); color: var(--azul); border-radius: 999px; font-size: .95rem; cursor: pointer; }
+  details { margin-top: 6px; }
+  summary { cursor: pointer; color: var(--azul); font-weight: 600; font-size: .92rem; }
+  table { border-collapse: collapse; margin-top: 8px; font-size: .92rem; width: 100%; }
+  th, td { border: 1px solid var(--borda); padding: 5px 8px; text-align: center; }
+  th { background: var(--azul-claro); }
+  .botoes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .botoes button { font-size: 1.05rem; padding: 12px 22px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+  #calcular { background: var(--amarelo); color: var(--tinta); border: 2px solid var(--tinta); }
+  #limpar { background: #fff; color: var(--azul); border: 2px solid var(--azul); }
+
+  /* Resultado */
+  #resultado[hidden] { display: none; }
+  .destaque { border: 3px solid var(--azul); }
+  .grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 12px 0; }
+  .dado { background: var(--fundo); border-radius: 8px; padding: 12px; }
+  .dado.principal { background: var(--amarelo); }
+  .dado span { display: block; font-size: .9rem; color: var(--suave); }
+  .dado.principal span { color: var(--tinta); }
+  .dado strong { font-size: 1.7rem; line-height: 1.2; }
+  .fio { display: flex; align-items: center; gap: 14px; margin: 8px 0 14px; }
+  .barra { height: 14px; background: var(--azul-claro); border-radius: 7px; overflow: hidden; }
+  .barra i { display: block; height: 100%; background: var(--azul); transition: width .4s; }
+  .aviso { background: #fdecea; border: 2px solid var(--erro); color: #6e1810; padding: 12px; border-radius: 8px; margin: 12px 0; font-weight: 600; }
+  .nota { background: #fff7d1; border: 1px solid #d9b800; padding: 10px 12px; border-radius: 8px; margin: 10px 0; font-size: .95rem; }
+  .etapa { border-left: 5px solid var(--azul); padding: 4px 0 4px 14px; margin-bottom: 16px; }
+  .etapa h3 { margin: 0 0 4px; font-size: 1.05rem; }
+  .etapa p { margin: 3px 0; }
+  .formula { font-family: Consolas, "Courier New", monospace; background: var(--fundo); padding: 3px 7px; border-radius: 4px; display: inline-block; font-size: .93rem; }
+  footer { padding: 0 16px 30px; font-size: .88rem; color: var(--suave); }
+  @media (min-width: 560px) { .grade { grid-template-columns: repeat(4, 1fr); } .dado strong { font-size: 1.45rem; } }
+  @media (prefers-reduced-motion: reduce) { .barra i { transition: none; } }
